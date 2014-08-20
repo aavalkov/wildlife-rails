@@ -7,7 +7,13 @@
       <dt><%= species.name%></dt>
     <% end %>
   </dl>
-</div>
 
+<form class="form-inline" action="/species/add" method="post">
+  <label for="task_name"></label>
+  <input class="form-control" id="species_name" name="name" placeholder="Add New Species" type="text">
+  <button class='btn btn-info'>+</button>
+</form>
+
+</div>
 
 

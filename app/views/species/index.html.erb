@@ -4,7 +4,14 @@
   <h3>All Species</h3>
   <dl>
     <% @species.each do |species| %>
-      <dt><%= species.name%></dt>
+      <dt>
+        <form action="/species/<%= species.id %>/delete/" method="post">
+          <input name="_method" type="hidden" value="delete">
+<!--           <input name="species[delete]" type="hidden" value="true"> -->
+          <button class = "btn btn-danger btn-xs">-</button>
+        <%= species.name%>
+        </form>
+      </dt>
     <% end %>
   </dl>
 

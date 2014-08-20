@@ -3,7 +3,7 @@
 
   <h3>All Species</h3>
   <dl>
-    <% @species.each do |species| %>
+    <% @species.sort.each do |species| %>
       <dt>
         <form action="/species/<%= species.id %>/delete/" method="post">
           <input name="_method" type="hidden" value="delete">

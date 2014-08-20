@@ -15,12 +15,11 @@
     <% end %>
   </dl>
 
-<form class="form-inline" action="/species/add" method="post">
+<form class="form-inline" action="/species/<%= @edit_species.id %>/edit/" method="post">
   <label for="task_name"></label>
-  <input class="form-control" id="species_name" name="name" placeholder="Add New Species" type="text">
-  <button class='btn btn-info'>+</button>
+  <input class="form-control" id="species_name" name="new_name" value="<%= @edit_species.name %>" type="text">
+  <button class='btn btn-warning'>e</button>
 </form>
 
 </div>
-
 

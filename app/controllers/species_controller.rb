@@ -18,4 +18,18 @@ class SpeciesController <ApplicationController
     render('species/index.html.erb')
   end
 
+  def update
+    @species = Species.all
+    @edit_species = Species.find_by(:id =>params[:id])
+    render('species/edit.html.erb')
+  end
+
+  def do_update
+    @species = Species.all
+    @edit_species = Species.find_by(:id =>params[:id])
+    @edit_species.update(:name => params[:new_name])
+    render('species/index.html.erb')
+  end
+
+
 end

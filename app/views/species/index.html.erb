@@ -1,5 +1,6 @@
 <div class='container'>
   <h1>Wildlife Tracker</h1>
+  <hr>
 
   <h3>All Species</h3>
   <dl>
@@ -9,7 +10,7 @@
           <input name="_method" type="hidden" value="delete">
           <button class="btn btn-danger btn-xs">-</button>
           <a href="/species/<%= species.id %>/edit/" class="btn btn-warning btn-xs">e</a>
-        <%= species.name%>
+        &nbsp;&nbsp;<%= species.name%>
         </form>
       </dt>
     <% end %>

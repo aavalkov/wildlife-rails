@@ -1,4 +1,4 @@
-class Sightings < ActiveRecord::Base
+class Sighting < ActiveRecord::Base
 
   belongs_to :species
 

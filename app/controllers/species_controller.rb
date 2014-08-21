@@ -31,5 +31,10 @@ class SpeciesController <ApplicationController
     render('species/index.html.erb')
   end
 
+  def show
+    @species = Species.find_by(:id =>params[:id])
+    @sightings = Sighting.all.where(:species_id => @species.id)
+    render('species/show.html.erb')
+  end
 
 end

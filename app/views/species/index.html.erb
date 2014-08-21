@@ -6,12 +6,7 @@
   <dl>
     <% @species.sort.each do |species| %>
       <dt>
-        <form action="/species/<%= species.id %>/delete/" method="post">
-          <input name="_method" type="hidden" value="delete">
-          <button class="btn btn-danger btn-xs">-</button>
-          <a href="/species/<%= species.id %>/edit/" class="btn btn-warning btn-xs">e</a>
-        &nbsp;&nbsp;<%= species.name%>
-        </form>
+        <a href="/species/<%= species.id %>"><%= species.name %></a>
       </dt>
     <% end %>
   </dl>

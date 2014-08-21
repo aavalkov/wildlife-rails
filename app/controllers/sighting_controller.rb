@@ -8,9 +8,8 @@ class SightingController < ApplicationController
   end
 
   def delete
-    @species = Species.find_by(:id =>params[:id])
-    @sightings = Sighting.all.where(:species_id => @species.id)
-    Sighting.find(params[:id]).destroy
-    redirect_to('species/show.html.erb')
+    @sighting = Sighting.find(params[:id])
+    @sighting.destroy
+    redirect_to("/species/#{@sighting.species_id}")
   end
 end

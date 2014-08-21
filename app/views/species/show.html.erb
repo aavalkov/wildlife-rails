@@ -2,7 +2,7 @@
   <h1><a href="/species">Wildlife Tracker</a></h1>
   <hr>
     <h2>
-    <form action="/species/<%= @species.id %>/delete/" method="post">
+    <form action="/species/<%= @species.id %>" method="post">
       <%= @species.name %>
       <input name="_method" type="hidden" value="delete">
       <button class="btn btn-danger btn-xs">delete</button>
@@ -30,12 +30,18 @@
             <td><%= sighting.date %></td>
             <td><%= sighting.latitude %></td>
             <td><%= sighting.longitude %></td>
+            <td>
+              <form action="/sightings/<%= sighting.id %>/" method="post">
+                <input name="_method" type="hidden" value="delete">
+                <button class="btn btn-danger btn-xs">Delete Sighting</button>
+              </form>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
     <table class='table'>
-        <form action="/species/<%= @species.id %>/add" method="post">
+        <form action="/species/<%= @species.id %>/sightings/new" method="post">
           <label>New Sighting</label>
           <td><input class="form-control" id="new_sighting_date" name="date" placeholder="Date" type="text"></td>
           <td><input class="form-control" id="new_sighting_lat" name="lat" placeholder="Latitude" type="text"></td>

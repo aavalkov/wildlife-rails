@@ -16,7 +16,7 @@
     <% end %>
   </dl>
 <h5>Editing <%= @edit_species.name %></h5>
-<form class="form-inline" action="/species/<%= @edit_species.id %>/edit/" method="post">
+<form class="form-inline" action="/species/<%= @edit_species.id %>" method="post">
   <label for="task_name"></label>
   <input class="form-control" id="species_name" name="new_name" value="<%= @edit_species.name %>" type="text">
   <button class='btn btn-warning'>e</button>

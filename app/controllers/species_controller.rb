@@ -18,13 +18,13 @@ class SpeciesController <ApplicationController
     render('species/index.html.erb')
   end
 
-  def update
+  def edit
     @species = Species.all
     @edit_species = Species.find_by(:id =>params[:id])
     render('species/edit.html.erb')
   end
 
-  def do_update
+  def update
     @species = Species.all
     @edit_species = Species.find_by(:id =>params[:id])
     @edit_species.update(:name => params[:new_name])
@@ -37,11 +37,5 @@ class SpeciesController <ApplicationController
     render('species/show.html.erb')
   end
 
-  def add_sighting
-    @species = Species.find_by(:id =>params[:id])
-    @sightings = Sighting.all.where(:species_id => @species.id)
-    @new_sightings = Sighting.create(:date => params[:date], :latitude => params[:lat], :longitude => params[:long], :species_id => @species.id)
-    render('species/show.html.erb')
-  end
 
 end

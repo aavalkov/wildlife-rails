@@ -2,11 +2,11 @@
   <h1>Wildlife Tracker</h1>
   <hr>
 
-  <h3>All Species</h3>
+  <h2>All Species <a href="/species/" class="btn btn-info btn-xs">done</a></h2>
   <dl>
     <% @species.sort.each do |species| %>
       <dt>
-        <form action="/species/<%= species.id %>/delete/" method="post">
+        <form action="/species/<%= species.id %>" method="post">
           <input name="_method" type="hidden" value="delete">
           <button class="btn btn-danger btn-xs">-</button>
           <a href="/species/<%= species.id %>/edit/" class="btn btn-warning btn-xs">e</a>
@@ -15,12 +15,5 @@
       </dt>
     <% end %>
   </dl>
-<h5>Editing <%= @edit_species.name %></h5>
-<form class="form-inline" action="/species/<%= @edit_species.id %>" method="post">
-  <label for="task_name"></label>
-  <input class="form-control" id="species_name" name="new_name" value="<%= @edit_species.name %>" type="text">
-  <button class='btn btn-warning'>e</button>
-</form>
-
 </div>
 

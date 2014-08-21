@@ -5,8 +5,8 @@
     <form action="/species/<%= @species.id %>" method="post">
       <%= @species.name %>
       <input name="_method" type="hidden" value="delete">
-      <button class="btn btn-danger btn-xs">delete</button>
-      <a href="/species/<%= @species.id %>/edit/" class="btn btn-warning btn-xs">edit</a>
+      <button class="btn btn-danger btn-xs">Delete Species</button>
+      <a href="/species/<%= @species.id %>" class="btn btn-info btn-xs">done</a>
     </form>
     </h2>
   <div class='col-md-6'>
@@ -36,16 +36,17 @@
                 <button class="btn btn-danger btn-xs">Delete Sighting</button>
               </form>
             </td>
+              <td><a href="/sightings/<%= sighting.id %>/edit" class="btn btn-warning btn-xs">Edit Sighting</button></td>
           </tr>
         <% end %>
       </tbody>
     </table>
     <table class='table'>
         <form action="/species/<%= @species.id %>/sightings" method="post">
-          <label>New Sighting</label>
-          <td><input class="form-control" id="new_sighting_date" name="date" placeholder="Date" type="text"></td>
-          <td><input class="form-control" id="new_sighting_lat" name="lat" placeholder="Latitude" type="text"></td>
-          <td><input class="form-control" id="new_sighting_long" name="long" placeholder="Longitude" type="text"></td>
+          <label>Edit Sighting</label>
+          <td><input class="form-control" id="new_sighting_date" name="date" placeholder="<%= @sighting.date %>" type="text"></td>
+          <td><input class="form-control" id="new_sighting_lat" name="lat" placeholder="<%= @sighting.latitude %>" type="text"></td>
+          <td><input class="form-control" id="new_sighting_long" name="long" placeholder="<%= @sighting.longitude %>" type="text"></td>
           <td><button class='btn btn-success'>Add</button></td>
         </form>
       </table>
@@ -57,4 +58,3 @@
   <div class='col-md-6'>
   </div><!--col md6 right-->
 </div> <!--container-->
-

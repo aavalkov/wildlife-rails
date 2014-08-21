@@ -1,0 +1,55 @@
+<div class='container'>
+  <h1><a href="/species">Wildlife Tracker</a></h1>
+  <hr>
+    <h2>
+    <form action="/species/<%= @species.id %>" method="post">
+      <%= @species.name %>
+      <input name="_method" type="hidden" value="delete">
+      <button class="btn btn-danger btn-xs">Delete Species</button>
+      <a href="/species/<%= @species.id %>" class="btn btn-info btn-xs">done</a>
+    </form>
+    </h2>
+  <div class='col-md-6'>
+  <div class='row'>
+  </div> <!--row-->
+  <div class='row'>
+    <h4>Sightings</h4>
+  </div> <!--row-->
+  <div class='row'>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td><strong>Date</strong></td>
+          <td><strong>Latitude</strong></td>
+          <td><strong>Longitude</strong></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sightings.sort.each do |sighting| %>
+          <tr>
+            <td><%= sighting.date %></td>
+            <td><%= sighting.latitude %></td>
+            <td><%= sighting.longitude %></td>
+            <td>
+              <form action="/sightings/<%= sighting.id %>/" method="post">
+                <input name="_method" type="hidden" value="delete">
+                <button class="btn btn-danger btn-xs">Delete Sighting</button>
+              </form>
+            </td>
+            <td>
+            <form action="/sightings/<%= sighting.id %>/edit" method="post">
+              <button class="btn btn-warning btn-xs">Edit Sighting</button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+
+  </div> <!--row-->
+  </div> <!--col md6 left-->
+  <div class='col-md-6'>
+  </div><!--col md6 right-->
+</div> <!--container-->
+

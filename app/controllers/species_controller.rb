@@ -37,4 +37,11 @@ class SpeciesController <ApplicationController
     render('species/show.html.erb')
   end
 
+  def add_sighting
+    @species = Species.find_by(:id =>params[:id])
+    @sightings = Sighting.all.where(:species_id => @species.id)
+    @new_sightings = Sighting.create(:date => params[:date], :latitude => params[:lat], :longitude => params[:long], :species_id => @species.id)
+    render('species/show.html.erb')
+  end
+
 end
